@@ -34,7 +34,7 @@ jobs:
           GMAIL_ADDRESS:  ${{ secrets.GMAIL_ADDRESS }}
           GMAIL_APP_PASS: ${{ secrets.GMAIL_APP_PASS }}
           YOUR_VERIZON:   ${{ secrets.YOUR_VERIZON }}
-        run: python main.py
+        run: python Main.py
 
       - name: Save updated grades
         uses: actions/cache/save@v4
