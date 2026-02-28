@@ -106,8 +106,7 @@ def check_grades():
                 if prev_score is None:
                     msg = f"Grade posted in {course}: {curr_score}% ({data.get('grade', 'N/A')})"
                 else:
-                    direction = "▲" if (curr_score or 0) > (prev_score or 0) else "▼"
-                    msg = f"{direction} Grade change in {course}: {prev_score}% → {curr_score}% ({data.get('grade', 'N/A')})"
+                    msg = f"Grade change in {course}: {prev_score}% → {curr_score}% ({data.get('grade', 'N/A')})"
 
                 send_text(msg)
 
@@ -127,6 +126,7 @@ def check_grades():
 if __name__ == "__main__":
 
     check_grades()
+
 
 
 
