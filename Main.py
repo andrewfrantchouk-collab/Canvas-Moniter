@@ -18,7 +18,6 @@ GRADES_FILE = "grades.json"                 # Stores previous grades locally
 COURSES_TO_TRACK = [
     "Calculus 3",
     "Computer Science 2",
-    "COP3402-26Spring 0013",
     "Physics 2",
     "Systems Software",
 ]
@@ -126,6 +125,7 @@ def check_grades():
 if __name__ == "__main__":
 
     check_grades()
+
 
 
 
