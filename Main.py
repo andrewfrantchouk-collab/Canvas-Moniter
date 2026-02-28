@@ -103,9 +103,9 @@ def check_grades():
             if curr_score != prev_score:
                 # Format nicely depending on whether scores exist
                 if prev_score is None:
-                    msg = f"Grade posted in {course}: {curr_score}% ({data.get('grade', 'N/A')})"
+                    msg = f"Grade posted in {course}: {curr_score}%"
                 else:
-                    msg = f"Change in {course}: {prev_score}% → {curr_score}% ({data.get('grade', 'N/A')})"
+                    msg = f"Change in {course}: {prev_score}% → {curr_score}%"
 
                 send_text(msg)
 
@@ -125,6 +125,7 @@ def check_grades():
 if __name__ == "__main__":
 
     check_grades()
+
 
 
 
