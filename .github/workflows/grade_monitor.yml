@@ -2,8 +2,8 @@ name: Canvas Grade Monitor
 
 on:
   schedule:
-    - cron: '*/30 * * * *'  # Runs every 30 minutes
-  workflow_dispatch:         # Lets you trigger it manually from GitHub too
+    - cron: '*/30 * * * *'
+  workflow_dispatch:
 
 jobs:
   check-grades:
@@ -21,13 +21,6 @@ jobs:
       - name: Install dependencies
         run: pip install requests
 
-      - name: Restore saved grades
-        uses: actions/cache@v4
-        with:
-          path: grades.json
-          key: grades-cache-${{ github.run_id }}
-          restore-keys: grades-cache-
-
       - name: Run grade checker
         env:
           CANVAS_TOKEN:   ${{ secrets.CANVAS_TOKEN }}
@@ -36,8 +29,10 @@ jobs:
           YOUR_VERIZON:   ${{ secrets.YOUR_VERIZON }}
         run: python Main.py
 
-      - name: Save updated grades
-        uses: actions/cache/save@v4
-        with:
-          path: grades.json
-          key: grades-cache-${{ github.run_id }}
+      - name: Commit updated grades
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+          git add grades.json
+          git diff --staged --quiet || git commit -m "Update grades.json"
+          git push
