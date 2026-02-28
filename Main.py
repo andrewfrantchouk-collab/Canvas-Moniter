@@ -10,7 +10,7 @@ CANVAS_BASE  = "https://ucf.instructure.com"
 
 GMAIL_ADDRESS  = "andrewfrantchouk@gmail.com"     # The Gmail you'll send FROM
 GMAIL_APP_PASS = "wdnq ergu pbrc ammt"      # Gmail App Password (see setup guide)
-YOUR_VERIZON   = "9169533234@vtext.com"     # Your 10-digit number + @vtext.com
+YOUR_VERIZON   = "19169533234@vtext.com"     # Your 10-digit number + @vtext.com
 
 GRADES_FILE = "grades.json"                 # Stores previous grades locally
 # ────────────────────────────────────────────────────────────────────────────
@@ -117,4 +117,5 @@ def check_grades():
 
 
 if __name__ == "__main__":
+
     check_grades()
