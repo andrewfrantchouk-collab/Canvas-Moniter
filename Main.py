@@ -86,7 +86,8 @@ def check_grades():
     """Compare current grades to saved grades and text on any change."""
     print("Checking grades...")
     current = get_grades()
-
+    current = {k: v for k, v in current.items() if k in COURSES_TO_TRACK}
+    
     if not current:
         print("No grades returned — check your Canvas token.")
         return
@@ -126,4 +127,5 @@ def check_grades():
 if __name__ == "__main__":
 
     check_grades()
+
 
