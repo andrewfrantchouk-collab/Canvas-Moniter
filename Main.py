@@ -5,14 +5,14 @@ import smtplib
 from email.mime.text import MIMEText
 
 # ── CONFIG ──────────────────────────────────────────────────────────────────
-CANVAS_TOKEN = "1158~4wTUyM62RffEA84e7CQe7M4kf3M7Qt7yA96YNk8tefu9DBCUZPBJnXaWEaHxuhLU"
-CANVAS_BASE  = "https://ucf.instructure.com"
+CANVAS_TOKEN = os.environ.get("CANVAS_TOKEN")
+CANVAS_BASE  = "https://ucf.instructure.com"  # this one is fine hardcoded
 
-GMAIL_ADDRESS  = "andrewfrantchouk@gmail.com"     # The Gmail you'll send FROM
-GMAIL_APP_PASS = "wdnq ergu pbrc ammt"      # Gmail App Password (see setup guide)
-YOUR_VERIZON   = "9169533234@vtext.com"     # Your 10-digit number + @vtext.com
+GMAIL_ADDRESS  = os.environ.get("GMAIL_ADDRESS")
+GMAIL_APP_PASS = os.environ.get("GMAIL_APP_PASS")
+YOUR_VERIZON   = os.environ.get("YOUR_VERIZON")
 
-GRADES_FILE = "grades.json"                 # Stores previous grades locally
+GRADES_FILE = "grades.json"
 # ────────────────────────────────────────────────────────────────────────────
 
 COURSES_TO_TRACK = [
@@ -125,6 +125,7 @@ def check_grades():
 if __name__ == "__main__":
 
     check_grades()
+
 
 
 
